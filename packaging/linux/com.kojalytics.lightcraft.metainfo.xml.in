@@ -2,26 +2,26 @@
 <!-- AppStream metadata (software centres, Flathub). Template: package.sh and the Flatpak
      manifest substitute @VERSION@ and @DATE@ from Cargo.toml and the build date. -->
 <component type="desktop-application">
-  <id>ai.storyteller.lightcraft</id>
+  <id>com.kojalytics.lightcraft</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT OR Apache-2.0</project_license>
-  <name>LightCraft</name>
+  <name>LightKoja</name>
   <summary>Organise photos and develop raw files, non-destructively</summary>
-  <developer id="ai.storyteller">
+  <developer id="com.kojalytics">
     <name>Learning Machines LLC</name>
   </developer>
   <description>
     <p>
-      LightCraft is a photo library and raw developer. Organise photos and develop raw files, non-destructively
+      LightKoja is a photo library and raw developer. Organise photos and develop raw files, non-destructively
     </p>
   </description>
-  <launchable type="desktop-id">ai.storyteller.lightcraft.desktop</launchable>
-  <icon type="stock">ai.storyteller.lightcraft</icon>
+  <launchable type="desktop-id">com.kojalytics.lightcraft.desktop</launchable>
+  <icon type="stock">com.kojalytics.lightcraft</icon>
   <!-- Only url types known to appstream 0.15 (Ubuntu 22.04, where CI validates): no vcs-browser. -->
-  <url type="homepage">https://getartcraft.com/apps/lightcraft</url>
-  <url type="bugtracker">https://github.com/storytold/lightcraft/issues</url>
-  <url type="help">https://github.com/storytold/lightcraft</url>
-  <url type="contact">https://discord.gg/artcraft</url>
+  <url type="homepage">https://www.kojalytics.com/koja-apps</url>
+  <url type="bugtracker">https://github.com/Kojalytics/lightcraft/issues</url>
+  <url type="help">https://github.com/Kojalytics/lightcraft</url>
+  <url type="contact">https://www.kojalytics.com/contact</url>
   <categories>
     <category>Graphics</category>
     <category>RasterGraphics</category>
@@ -36,7 +36,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Photo editing with The Tetons and the Snake River by Ansel Adams</caption>
-      <image type="source">https://raw.githubusercontent.com/storytold/lightcraft/3b4279fc2485bb51847c0071a1b3c514aa0f98f4/docs/images/hero-tetons.jpg</image>
+      <image type="source">https://raw.githubusercontent.com/Kojalytics/lightcraft/3b4279fc2485bb51847c0071a1b3c514aa0f98f4/docs/images/hero-tetons.jpg</image>
     </screenshot>
   </screenshots>
   <branding>

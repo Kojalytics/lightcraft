@@ -18,6 +18,9 @@ rawnind-model = ["denoise", "lightcraft-engine/rawnind-model"]
 heif = ["lightcraft-codecs/heif"]
 
 [dependencies]
+base64 = "0.22"
+ed25519-dalek = { version = "2", default-features = false, features = ["std"] }
+sha2 = "0.11"
 lightcraft-engine = { workspace = true, features = ["sam"] }
 lightcraft-sysmem = { workspace = true }
 lightcraft-ui-egui = { workspace = true }

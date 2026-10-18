@@ -49,7 +49,7 @@ fn window_handle(app: &LightcraftApp, ui: &mut egui::Ui, content: Rect, margin_l
 pub fn show(app: &mut LightcraftApp, ui: &mut egui::Ui) {
     let t = Tokens::get(ui.ctx());
     // room for the traffic lights; in full screen they are gone, and the sidebar button sits as far
-    // from the left edge as the Discord button from the right (12 margin + 4)
+    // from the left edge as the rightmost icon from the right (12 margin + 4)
     let left = match (app.integrated_titlebar, app.window_is_fullscreen) {
         (true, false) => 78,
         (true, true) => 16,
@@ -60,9 +60,9 @@ pub fn show(app: &mut LightcraftApp, ui: &mut egui::Ui) {
         .frame(egui::Frame::NONE.fill(t.chrome).inner_margin(egui::Margin { left, right: 12, top: 0, bottom: 0 }))
         .show(ui, |ui| {
             let full = ui.max_rect();
-            // room for the filter icon and the seven icons on the right
+            // room for the filter icon and the six icons on the right
             // (the field is centred, so each icon on the right takes its width from both sides)
-            let mut sw = 640.0f32.min(full.width() - 620.0).max(190.0);
+            let mut sw = 640.0f32.min(full.width() - 540.0).max(190.0);
             if !app.native_menu {
                 // leave room for the in-window menus left of the (centred) search field
                 let menus_right = full.left() + 140.0 + crate::menubar::bar_width(ui) + 24.0;
@@ -180,7 +180,6 @@ pub fn show(app: &mut LightcraftApp, ui: &mut egui::Ui) {
                 None => crate::i18n::tr("Import Photos…").to_string(),
             };
             for (id, icon, tip, cmd) in [
-                ("discord", Icon::Chat, "Join the ArtCraft community on Discord", "app.discord"),
                 ("cloud", Icon::Cloud, cloud_tip, ""),
                 ("help", Icon::Help, "Keyboard shortcuts", "app.shortcuts"),
                 ("share", Icon::Share, "Export", "dialog.export"),

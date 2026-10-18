@@ -54,7 +54,7 @@ copy_docs() {
   copy_font_licences "$dest"
 }
 
-# Builds made with CRAFT_FONTS_DIR (storytold/craft-fonts, an optional build input) embed its fonts;
+# Builds made with CRAFT_FONTS_DIR (Kojalytics/craft-fonts, an optional build input) embed its fonts;
 # their OFL licences go with the package as OFL-<family-dir>.txt. Nothing to do without it.
 copy_font_licences() {
   local dest="$1" lic family

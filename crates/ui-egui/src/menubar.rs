@@ -244,11 +244,9 @@ const LAYOUT: &[(&str, &[&str])] = &[
     (
         "Help",
         &[
-            "app.discord",
             "app.feedback",
             "---",
             "app.website",
-            "app.github",
             "app.artcraft",
             "---",
             "app.whatsNew",
@@ -1327,8 +1325,8 @@ mod tests {
             o.lock().unwrap().push(u.to_string());
             Ok(())
         }));
-        run_item(&mut app, "app.help", Value::Null).unwrap();
-        assert_eq!(opened.lock().unwrap().as_slice(), [crate::links::HELP]);
+        run_item(&mut app, "app.feedback", Value::Null).unwrap();
+        assert_eq!(opened.lock().unwrap().as_slice(), [crate::links::FEEDBACK]);
         // merging with the last settings needs a selection of two or more
         let first = app.session.visible()[0].0;
         app.session.execute("library.select", &json!({"ids": [first]})).unwrap();

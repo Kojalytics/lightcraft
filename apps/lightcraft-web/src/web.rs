@@ -704,8 +704,8 @@ pub fn start(chinese_font: Vec<u8>) {
                 }
             }
             Err(e) => {
-                log::error!("LightCraft failed to start: {e:?}");
-                set_status(&format!("LightCraft failed to start: {e:?}"));
+                log::error!("LightKoja failed to start: {e:?}");
+                set_status(&format!("LightKoja failed to start: {e:?}"));
             }
         }
     });

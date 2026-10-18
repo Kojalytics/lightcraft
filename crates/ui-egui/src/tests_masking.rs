@@ -1029,18 +1029,18 @@ fn edit_in_external_editor_opens_the_copy() {
     };
     let app = LightcraftApp::new(lightcraft_engine::Session::with_demo().with_fs(), services);
     let mut h = Headless::new(app, [1200.0, 800.0], 1.0);
-    h.app.ui.settings.external_editor = "PhotoCraft".into();
+    h.app.ui.settings.external_editor = "PhotoKoja".into();
     let r = h.request("engine.execute", json!({"command": "photo.editInExternal", "params": {"dir": dir.to_string_lossy()}}), T);
     assert_eq!(r["ok"], true, "{r}");
     let calls = opened.lock().unwrap().clone();
     assert_eq!(calls.len(), 1);
     assert!(calls[0].0.ends_with("-Edit.tif") && std::path::Path::new(&calls[0].0).exists(), "{calls:?}");
-    assert_eq!(calls[0].1, "PhotoCraft");
+    assert_eq!(calls[0].1, "PhotoKoja");
     let _ = std::fs::remove_dir_all(&dir);
     h.settle(SETTLE);
 }
 
-/// Edit in PhotoCraft: a PSD copy (what PhotoCraft saves back to), handed to "PhotoCraft" for
+/// Edit in PhotoCraft: a PSD copy (what PhotoCraft saves back to), handed to "PhotoKoja" for
 /// the host to find; when the host can't find it, no copy is made.
 #[test]
 fn edit_in_photocraft_opens_a_psd_copy() {
@@ -1058,7 +1058,7 @@ fn edit_in_photocraft_opens_a_psd_copy() {
         })),
         check_editor: Some(Box::new(move |app: &str| {
             if app == crate::state::PHOTOCRAFT && !i.load(std::sync::atomic::Ordering::SeqCst) {
-                Err("PhotoCraft isn't installed".into())
+                Err("PhotoKoja isn't installed".into())
             } else {
                 Ok(())
             }
@@ -1071,14 +1071,14 @@ fn edit_in_photocraft_opens_a_psd_copy() {
     let params = json!({"command": "photo.editInPhotoCraft", "params": {"dir": dir.to_string_lossy()}});
     let r = h.request("engine.execute", params.clone(), T);
     assert_eq!(r["ok"], false, "{r}");
-    assert_eq!((h.app.session.catalog.len(), opened.lock().unwrap().len()), (n, 0), "no copy without PhotoCraft");
+    assert_eq!((h.app.session.catalog.len(), opened.lock().unwrap().len()), (n, 0), "no copy without PhotoKoja");
     installed.store(true, std::sync::atomic::Ordering::SeqCst);
     let r = h.request("engine.execute", params, T);
     assert_eq!(r["ok"], true, "{r}");
     let calls = opened.lock().unwrap().clone();
     assert_eq!(calls.len(), 1);
     assert!(calls[0].0.ends_with("-Edit.psd") && std::path::Path::new(&calls[0].0).exists(), "{calls:?}");
-    assert_eq!(calls[0].1, "PhotoCraft");
+    assert_eq!(calls[0].1, "PhotoKoja");
     let d = lightcraft_codecs::decode(&std::fs::read(&calls[0].0).unwrap(), Default::default()).unwrap();
     assert_eq!(d.bit_depth, 16, "16-bit by default");
     // a portable copy: its path is what the host is given; the file follows the settings
@@ -1222,7 +1222,7 @@ fn open_original_refuses_anything_that_is_not_a_photo_file() {
     for (id, name) in bad.iter().zip(programs) {
         let r = h.request("engine.execute", json!({"command": "photo.openOriginalInExternal", "params": {"ids": [id.0]}}), T);
         assert_eq!(r["ok"], false, "{name} was opened: {r}");
-        assert!(r.to_string().contains("file types LightCraft reads"), "{name}: {r}");
+        assert!(r.to_string().contains("file types LightKoja reads"), "{name}: {r}");
         // the menu item is greyed out for such a record, so it is never offered either
         exec(&mut h, "library.select", json!({"ids": [id.0]}));
         assert!(!crate::menus::ui_enabled(&h.app, "photo.openOriginalInExternal"), "{name} is offered in the menu");

@@ -7,13 +7,13 @@
   <key>CFBundleDevelopmentRegion</key>
   <string>en</string>
   <key>CFBundleDisplayName</key>
-  <string>LightCraft</string>
+  <string>LightKoja</string>
   <key>CFBundleName</key>
-  <string>LightCraft</string>
+  <string>LightKoja</string>
   <key>CFBundleExecutable</key>
-  <string>LightCraft</string>
+  <string>LightKoja</string>
   <key>CFBundleIdentifier</key>
-  <string>ai.storyteller.lightcraft</string>
+  <string>com.kojalytics.lightcraft</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundlePackageType</key>
@@ -29,7 +29,7 @@
   <key>LightCraftBuildCommit</key>
   <string>@BUILD_SHA@</string>
   <key>CFBundleIconFile</key>
-  <string>LightCraft</string>
+  <string>LightKoja</string>
   <key>LSApplicationCategoryType</key>
   <string>public.app-category.graphics-design</string>
   <!-- Must match MACOSX_DEPLOYMENT_TARGET in package.sh. Big Sur is the first release on
@@ -42,28 +42,28 @@
   <true/>
   <key>NSRequiresAquaSystemAppearance</key>
   <false/>
-  <!-- Shown by macOS when LightCraft first asks to control Photos (Export > Add to Apple Photos;
+  <!-- Shown by macOS when LightKoja first asks to control Photos (Export > Add to Apple Photos;
        needs the apple-events entitlement in entitlements.plist). -->
   <key>NSAppleEventsUsageDescription</key>
-  <string>LightCraft asks Photos to import the photos you export when you choose Add to Apple Photos in the Export dialog.</string>
+  <string>LightKoja asks Photos to import the photos you export when you choose Add to Apple Photos in the Export dialog.</string>
   <key>NSHumanReadableCopyright</key>
-  <string>Copyright © the LightCraft authors. MIT OR Apache-2.0.</string>
+  <string>Copyright © the LightKoja authors. MIT OR Apache-2.0.</string>
 
   <!-- Lightcraft's own format. -->
   <key>UTExportedTypeDeclarations</key>
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>ai.storyteller.lightcraft.document</string>
+      <string>com.kojalytics.lightcraft.document</string>
       <key>UTTypeDescription</key>
-      <string>LightCraft Document</string>
+      <string>LightKoja Document</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
         <string>public.image</string>
       </array>
       <key>UTTypeIconFile</key>
-      <string>LightCraft</string>
+      <string>LightKoja</string>
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.filename-extension</key>
@@ -94,7 +94,7 @@
     </dict>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>ai.storyteller.lightcraft.qoi</string>
+      <string>com.kojalytics.lightcraft.qoi</string>
       <key>UTTypeDescription</key>
       <string>QOI Image</string>
       <key>UTTypeConformsTo</key>

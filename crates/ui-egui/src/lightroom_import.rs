@@ -137,7 +137,7 @@ impl Drop for LightroomTask {
 
 #[cfg(target_arch = "wasm32")]
 fn unsupported_wasm() -> Result<Value, String> {
-    Err("Lightroom catalog import is unavailable in browser builds; open the catalog in the native LightCraft app".into())
+    Err("Lightroom catalog import is unavailable in browser builds; open the catalog in the native LightKoja app".into())
 }
 
 /// Whether a Lightroom task currently owns the catalog transition.
@@ -620,14 +620,14 @@ mod tests {
             rules: vec![lightcraft_catalog::rules::Rule::Field { field: "rating".into(), op: "is".into(), value: json!(5) }],
         });
         let (task, _tx, _, _) = fake_import(&h);
-        let value = json!({"photos": 1, "imported": 1, "collections": 0, "missing": ["D:/Photos/a.NEF"], "mapping": {"1": id}, "library": "C:/Pictures/LightCraft Library"});
+        let value = json!({"photos": 1, "imported": 1, "collections": 0, "missing": ["D:/Photos/a.NEF"], "mapping": {"1": id}, "library": "C:/Pictures/LightKoja Library"});
         terminal(&mut h.app, &h.view.ctx, &task, value);
         assert!(h.app.ui.toast.as_ref().unwrap().0.contains("1 photos added"));
         h.step();
         h.step();
         let text = h.painted_text().join(" ");
         assert!(text.contains("Destination library"), "{text}");
-        assert!(text.contains("C:/Pictures/LightCraft Library"), "{text}");
+        assert!(text.contains("C:/Pictures/LightKoja Library"), "{text}");
         assert!(text.contains("1 originals are missing"), "{text}");
         assert!(text.contains("Show in Library"), "{text}");
         // The activity and toast can go away; the modal result remains until dismissed.
