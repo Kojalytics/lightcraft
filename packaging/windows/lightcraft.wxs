@@ -14,13 +14,13 @@
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
   <Package
       Name="LightKoja"
-      Manufacturer="Learning Machines LLC"
+      Manufacturer="Kojalytics"
       Version="$(var.Version)"
-      UpgradeCode="229BB552-5EFD-479A-BA86-8CB6D926390C"
+      UpgradeCode="766B0DBA-7637-5A11-AD6D-D3A68A1430CA"
       Scope="perMachine"
       Compressed="yes"
       Language="1033">
-    <SummaryInformation Description="LightKoja photo library and raw developer" Manufacturer="Learning Machines LLC" />
+    <SummaryInformation Description="LightKoja photo library and raw developer" Manufacturer="Kojalytics" />
     <!-- Same-version upgrades let successive pre-releases of one X.Y.Z replace each other
          (MSI versions are numeric, so 1.2.3-rc.1 and 1.2.3-rc.2 are both 1.2.3). -->
     <MajorUpgrade AllowSameVersionUpgrades="yes"
@@ -192,7 +192,7 @@
 
   <Fragment>
     <ComponentGroup Id="LightcraftFiles" Directory="INSTALLFOLDER">
-      <Component Id="LightcraftApp" Guid="8A1D3A39-F7C1-47B1-97AE-40C80BF82F4A">
+      <Component Id="LightcraftApp" Guid="10361708-402D-5179-9FA9-856CF4FD8565">
         <File Id="LightcraftExe" Source="$(var.BinDir)\lightcraft.exe" KeyPath="yes">
           <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="LightKoja"
               Description="LightKoja photo library and raw developer" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
