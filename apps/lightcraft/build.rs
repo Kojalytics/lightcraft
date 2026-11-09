@@ -15,6 +15,7 @@ fn main() {
     let mut res = winresource::WindowsResource::new();
     res.set_icon("../../assets/app-icon/lightcraft.ico")
         .set("ProductName", "LightKoja")
+        .set("CompanyName", "Kojalytics")
         .set("FileDescription", "LightKoja photo library and raw developer")
         .set("LegalCopyright", "Copyright (c) the LightKoja authors. MIT OR Apache-2.0.")
         .set("OriginalFilename", "lightcraft.exe")
